@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView,CreateAPIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from django.http import Http404
+from django.http import Http404,HttpResponse
 from datetime import datetime
 from rest_framework.decorators import api_view
 
@@ -40,7 +40,6 @@ class Get_or_Post(APIView):
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
             serializer = WeatherDataSerializer(data=request.data)
-            print(request.data)
             if serializer.is_valid():
                 w_data = serializer.save()
                 serializer = WeatherDataSerializer(w_data)

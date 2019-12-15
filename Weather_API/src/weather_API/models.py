@@ -20,6 +20,5 @@ class weather_data(models.Model):
 
     @list.setter
     def list(self, value):
-        print(value)
         self._list = json.dumps(self.list + value)
 

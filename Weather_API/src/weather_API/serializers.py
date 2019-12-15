@@ -18,6 +18,7 @@ class WeatherDataSerializer(ModelSerializer):
     def create(self, validated_data):
         loc_data = validated_data.pop('location', None)
         location = Location.objects.create(**loc_data)
+        validated_data.update({"temperature":"["+validated_data["temperature"]+"]"})
         return weather_data.objects.create(location=location, **validated_data)
 
 
