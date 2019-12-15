@@ -1,0 +1,8 @@
+Django
+django-crispy-forms
+django-markdown-deux
+django-pagedown
+markdown2
+Pillow
+django-extensions
+psycopg2-binary
