@@ -40,6 +40,7 @@ class Get_or_Post(APIView):
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
             serializer = WeatherDataSerializer(data=request.data)
+            print(request.data)
             if serializer.is_valid():
                 w_data = serializer.save()
                 serializer = WeatherDataSerializer(w_data)
